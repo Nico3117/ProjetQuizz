@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Base de données : `dbusergame`
 --
 
+CREATE DATABASE dbusergame;
+USE dbusergame;
 -- --------------------------------------------------------
 
 --

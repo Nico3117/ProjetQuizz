@@ -1,0 +1,31 @@
+<html>
+<body>
+<h1>Formulaire de connexion</h1>
+<form id="formConnexion">
+    <label>email:</label><br>
+    <input id="email" name="email" type="email" ><br>
+    <label>password:</label><br>
+    <input id="password" name="password" type="password" ><br>
+    <button type="submit" >connexion</button>
+</form>
+<a  href="inscription" >inscription</a>
+</body>
+<script>
+  const TheForm = document.getElementById("formConnexion");
+  TheForm.addEventListener("submit", (e) =>{
+
+    //annule la prise en main vers une url impossible à manipuler
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const  myUrl = "/connexion/" + email + "/" + password ;
+
+    window.location.replace(myUrl);
+
+
+
+  });
+</script>
+</html>

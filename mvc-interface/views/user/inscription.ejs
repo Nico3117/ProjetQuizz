@@ -1,0 +1,30 @@
+<html>
+<body>
+<h1>Formulaire d'inscription</h1>
+<form id="formInscription">
+    <label>email:</label><br>
+    <input id="email" name="email" type="email" ><br>
+    <label>password:</label><br>
+    <input id="password" name="password" type="password" ><br>
+    <button type="submit" >inscription</button>
+</form>
+</body>
+<script>
+  const TheForm = document.getElementById("formInscription");
+  TheForm.addEventListener("submit", (e) =>{
+
+    //annule la prise en main vers une url impossible à manipuler
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    const  myUrl = "/inscriptionTrue/" + email + "/" + password ;
+
+    window.location.replace(myUrl);
+
+
+
+  });
+</script>
+</html>

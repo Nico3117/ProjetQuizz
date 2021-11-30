@@ -9,12 +9,13 @@ const port = 3000;
 
 const pool  = mysql.createPool({
     host            : 'localhost',
-    user            : 'root',
-    password        : '',
+    user            : 'nicolas',
+    password        : 'nicolas00!!X',
     database        : 'dbusergame'
 });
 
 let emailValid;
+let passwordValid;
 
 app.post('/login', async (req, res) => {
     // Récupérer data user
@@ -53,7 +54,7 @@ app.post('/login', async (req, res) => {
 app.post('/signup', async (req, res) => {
     emailNewUser = req.query.email;
     passwordNewUser = req.query.password;
-    res.status(200).send(); 
+    res.status(200).send();
     console.log(emailNewUser, passwordNewUser)
     pool.getConnection((err, connection) => {
         if(err) throw err;
