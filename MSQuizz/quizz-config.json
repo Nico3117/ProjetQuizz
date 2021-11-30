@@ -1,0 +1,50 @@
+{
+    "Quizz" : [
+        {
+            "id": "1",
+            "title" : "Quizz1",
+            "catgories": "maths",
+            "level": "facile",
+            "questions" : [
+                {
+                    "id": "1",
+                    "question": "2+2",
+                    "reponse": "4"
+                }, 
+                {
+                    "id": "2",
+                    "question": "3+3",
+                    "reponse": "6"
+                }, 
+                {
+                    "id": "3",
+                    "question": "4+4",
+                    "reponse": "8"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title" : "Quizz2",
+            "catgories": "geo",
+            "level": "facile",
+            "questions" : [
+                {
+                    "id": "1",
+                    "question": "La capitale de la France ?",
+                    "reponse": "Paris"
+                }, 
+                {
+                    "id": "2",
+                    "question": "La capitale de l'Espagne ?",
+                    "reponse": "Madrid"
+                }, 
+                {
+                    "id": "3",
+                    "question": "La capitale de l'Allemagne ?",
+                    "reponse": "Berlin"
+                }
+            ]
+        }
+    ]
+}
