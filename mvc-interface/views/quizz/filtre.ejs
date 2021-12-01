@@ -1,1 +1,22 @@
-<h1>totoestmichot</h1>
+<h1>choix du jeu</h1>
+<table>
+<!<% for(var i=0; i<quizzArray.length; i++) {%>
+
+    <tr>
+        <td><%=quizzArray[i].title%></td>
+        <td><%=quizzArray[i].catgories%></td>
+        <td><%=quizzArray[i].level%></td>
+        <%
+            const lid = quizzArray[i].id;
+            const lurl = "/jouer/" + lid;
+        %>
+
+        <td><a href=<%=lurl%>>jouer?</a></td>
+
+    </tr>
+
+
+<% } %>
+</table>
+
+

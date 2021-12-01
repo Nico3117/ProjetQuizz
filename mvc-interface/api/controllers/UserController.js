@@ -29,59 +29,9 @@ module.exports = {
 
         drapeau = true;
         //get collection of quizzes
-        app.post('/quizz', async (req, res) => {
-             let quizz = req.body.quizz
-             console.log(quizz)
-        })
 
-        receptionQuizzFromMs = [
-          {
-            "id": "1",
-            "title" : "Quizz1",
-            "catgories": "maths",
-            "level": "facile",
-            "questions" : [
-              {
-                "id": "1",
-                "question": "2+2",
-                "reponse": "4"
-              },
-              {
-                "id": "2",
-                "question": "3+3",
-                "reponse": "6"
-              },
-              {
-                "id": "3",
-                "question": "4+4",
-                "reponse": "8"
-              }
-            ]
-          },
-          {
-            "id": "2",
-            "title" : "Quizz2",
-            "catgories": "geo",
-            "level": "facile",
-            "questions" : [
-              {
-                "id": "1",
-                "question": "La capitale de la France ?",
-                "reponse": "Paris"
-              },
-              {
-                "id": "2",
-                "question": "La capitale de l'Espagne ?",
-                "reponse": "Madrid"
-              },
-              {
-                "id": "3",
-                "question": "La capitale de l'Allemagne ?",
-                "reponse": "Berlin"
-              }
-            ]
-          }
-        ];
+
+
       }
 
 
@@ -99,7 +49,9 @@ module.exports = {
       });
 
 
-    return res.view('quizz/filtre' , {arrayOfQuizz : receptionQuizzFromMs});
+
+    //return res.view('quizz/filtre' , {arrayOfQuizz : receptionQuizzFromMs});
+    return res.redirect('/quizzAll');
 
   },
   inscription: async function (req, res){
@@ -108,7 +60,7 @@ module.exports = {
 
     let emailNew = req.params.email;
     let passwordNew = req.params.password;
-console.log(emailNew, passwordNew)
+  console.log(emailNew, passwordNew)
     const retour = await axios.post('http://localhost:3000/signup', {
         email: emailNew,
         password: passwordNew
@@ -128,9 +80,11 @@ console.log(emailNew, passwordNew)
       .then(function (response) {
       });
 
-    return res.view('quizz/filtre' );
+    return res.redirect('/quizzAll');
 
   },
+
+
 
 
 };

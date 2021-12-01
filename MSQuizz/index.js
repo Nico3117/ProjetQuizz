@@ -16,7 +16,7 @@ let nameQuizz;
 app.post('/score', async (req, res) => {
     // Récuperer data user
     scoreUser = req.query.score;
-    nameQuizz = req.query.name; 
+    nameQuizz = req.query.name;
     res.status(200).send();
 console.log(scoreUser, nameQuizz)
     try {
@@ -29,7 +29,33 @@ console.log(scoreUser, nameQuizz)
     }
 });
 
+app.get('/collecOfQuizzes', async (req, res) => {
+
+    const collec = quizz.Quizz;
+
+   return  res.send(collec);
+
+});
+
+app.get('/collecOfQuizzesId', async (req, res) => {
+
+    const collec = quizz.Quizz;
+
+    var quizzToReturn;
+    for (let i = 0; i < collec.length; i ++){
+
+        if (req.query.id == collec[i].id){
+            quizzToReturn = collec[i];
+        }
+
+    }
+
+    return  res.send(quizzToReturn);
+
+});
+
 app.listen(port, () => {
     console.log(`Service listening at http://localhost:${port}`)
+
 })
 
