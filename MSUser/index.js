@@ -7,10 +7,17 @@ app.use(bodyparser.json());
 
 const port = 3000;
 
+// const pool  = mysql.createPool({
+//     host            : 'localhost',
+//     user            : 'nicolas',
+//     password        : 'nicolas00!!X',
+//     database        : 'dbusergame'
+// });
+
 const pool  = mysql.createPool({
     host            : 'localhost',
-    user            : 'nicolas',
-    password        : 'nicolas00!!X',
+    user            : 'root',
+    password        : '',
     database        : 'dbusergame'
 });
 
@@ -51,14 +58,14 @@ app.post('/login', async (req, res) => {
     });
 });
 
-app.post('/signup', async (req, res) => {
-    emailNewUser = req.query.email;
-    passwordNewUser = req.query.password;
-    res.status(200).send();
+app.post('/signup', async (req, res) => {  
+    let emailNewUser = req.body.email;
+    let passwordNewUser = req.body.password;
     console.log(emailNewUser, passwordNewUser)
+    res.status(200).send();
     pool.getConnection((err, connection) => {
         if(err) throw err;
-        connection.query(`INSERT INTO users (email, password) VALUES ('${emailNewUser}', ${passwordNewUser})`, (err, rows) => {
+        connection.query(`INSERT INTO users (email, password) VALUES ('${emailNewUser}', '${passwordNewUser}')`, (err, rows) => {
             connection.release();
             if (!err) {
                 console.log('User ajouté !');

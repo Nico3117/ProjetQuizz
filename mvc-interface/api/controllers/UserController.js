@@ -6,6 +6,7 @@
  */
 
 const axios = require("axios");
+
 module.exports = {
 
   connexion: async function (req, res) {
@@ -103,30 +104,35 @@ module.exports = {
 
     var axios = require('axios');
 
-    const email = req.params.email;
-    const password = req.params.password;
+    let emailNew = req.params.email;
+    let passwordNew = req.params.password;
+console.log(emailNew, passwordNew)
+try {
+  const res = await axios.post('http://localhost:3000/signup', {
+      email: emailNew,
+      password: passwordNew
+  });
+} catch (err) {
+  console.error(err);
+}
+    // const retour = await axios.post('http://localhost:3000/signup', {
+    //     email: emailNew,
+    //     password: passwordNew
+    // }).then(function (response) {
+    //   //console.log(response);
 
-    const retour = await axios.post('http://localhost:3000/signup', {
-      params: {
-        email: email,
-        password: password
+    //   if (response.status === 200) {
 
-      }
-    }).then(function (response) {
-      console.log(response);
+    //     console.log("signup done!");
 
-      if (response.status === 200) {
+    //   }
 
-        console.log("signup done!");
-
-      }
-
-    })
-      .catch(function (error) {
-        console.log(error);
-      })
-      .then(function (response) {
-      });
+    // })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   })
+    //   .then(function (response) {
+    //   });
 
     return res.view('quizz/filtre' );
 
