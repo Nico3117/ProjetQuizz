@@ -26,8 +26,8 @@ let passwordValid;
 
 app.post('/login', async (req, res) => {
     // Récupérer data user
-    let emailUser = req.query.email;
-    let passwordUser = req.query.password;
+    let emailUser = req.body.email;
+    let passwordUser = req.body.password;
 
     pool.getConnection((err, connection) => {
         if(err) throw err;

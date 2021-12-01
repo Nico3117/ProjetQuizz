@@ -18,13 +18,10 @@ module.exports = {
     const email = req.params.email;
     const password = req.params.password;
     var drapeau = false;
-
+    console.log(email, password)
     const retour = await axios.post('http://localhost:3000/login', {
-      params: {
         email: email,
         password: password
-
-      }
     }).then(function (response) {
       console.log(response);
 
@@ -32,6 +29,11 @@ module.exports = {
 
         drapeau = true;
         //get collection of quizzes
+        app.post('/quizz', async (req, res) => {
+             let quizz = req.body.quizz
+             console.log(quizz)
+        })
+
         receptionQuizzFromMs = [
           {
             "id": "1",
@@ -107,32 +109,24 @@ module.exports = {
     let emailNew = req.params.email;
     let passwordNew = req.params.password;
 console.log(emailNew, passwordNew)
-try {
-  const res = await axios.post('http://localhost:3000/signup', {
-      email: emailNew,
-      password: passwordNew
-  });
-} catch (err) {
-  console.error(err);
-}
-    // const retour = await axios.post('http://localhost:3000/signup', {
-    //     email: emailNew,
-    //     password: passwordNew
-    // }).then(function (response) {
-    //   //console.log(response);
+    const retour = await axios.post('http://localhost:3000/signup', {
+        email: emailNew,
+        password: passwordNew
+    }).then(function (response) {
+      //console.log(response);
 
-    //   if (response.status === 200) {
+      if (response.status === 200) {
 
-    //     console.log("signup done!");
+        console.log("signup done!");
 
-    //   }
+      }
 
-    // })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   })
-    //   .then(function (response) {
-    //   });
+    })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .then(function (response) {
+      });
 
     return res.view('quizz/filtre' );
 

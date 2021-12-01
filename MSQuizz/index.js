@@ -1,7 +1,7 @@
 const axios = require('axios');
 const express = require('express');
 const bodyparser = require('body-parser');
-// const quizz = require('./quizz-config.json');
+const quizz = require('./quizz-config.json');
 
 const app = express();
 app.use(bodyparser.json())
