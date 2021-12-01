@@ -24,6 +24,11 @@ module.exports.routes = {
   '/inscription': { view: 'user/inscription' },
   '/connexion/:email/:password' : {controller: 'UserController' , action:'connexion'},
   '/inscriptionTrue/:email/:password' : {controller: 'UserController' , action:'inscription'},
+  '/quizzAll' : {controller : "QuizzController" , action: 'recupQuizz'},
+  '/jouer/:idJeu' : {controller: "QuizzController" , action: "debutJeu"},
+
+
+
 
 
   /***************************************************************************
