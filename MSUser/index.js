@@ -31,7 +31,7 @@ app.post('/login', async (req, res) => {
 
     pool.getConnection((err, connection) => {
         if(err) throw err;
-        connection.query('SELECT email, password from users', (err, results) => {
+        connection.query('SELECT * from users', (err, results) => {
             connection.release();
             if(err) throw err;
             results.forEach((f) => {

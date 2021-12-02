@@ -13,7 +13,8 @@ module.exports = {
 
     const email = req.params.email;
     const password = req.params.password;
-    var drapeau = false;
+    var drapeau ;
+    drapeau = false;
 
     console.log(email, password)
 
@@ -26,17 +27,26 @@ module.exports = {
         drapeau = true;
         //get collection of quizzes
       }
-      else if (response > 299){
+      else if (response.status === 403){
+        console.log(response.status)
         drapeau = false;
+        return res.redirect('/');
       }
     })
       .catch(function (error) {
         console.log(error);
       })
-      .then(function (response) {
-      });
     //return res.view('quizz/filtre' , {arrayOfQuizz : receptionQuizzFromMs});
-    return res.redirect('/quizzAll');
+    if (drapeau == true){
+
+      return res.redirect('/quizzAll');
+
+    }
+    else {
+      return res.redirect('/');
+    }
+
+    
   },
 
   inscription: async function (req, res){
