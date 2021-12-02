@@ -26,6 +26,7 @@ module.exports.routes = {
   '/inscriptionTrue/:email/:password' : {controller: 'UserController' , action:'inscription'},
   '/quizzAll' : {controller : "QuizzController" , action: 'recupQuizz'},
   '/jouer/:idJeu' : {controller: "QuizzController" , action: "debutJeu"},
+  '/valid/:idQuizz/:repQuest/:rep' : {controller: "QuizzController", action: "valid"}
 
 
 

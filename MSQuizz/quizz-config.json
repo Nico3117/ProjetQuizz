@@ -9,17 +9,32 @@
                 {
                     "id": "1",
                     "question": "2+2",
-                    "reponse": "4"
+                    "reponse": [
+                        "3",
+                        "4",
+                        "2"
+                    ],
+                    "reponseValid": "4"
                 }, 
                 {
                     "id": "2",
                     "question": "3+3",
-                    "reponse": "6"
+                    "reponse": [
+                        "6",
+                        "45",
+                        "37"
+                    ],
+                    "reponseValid": "6"
                 }, 
                 {
                     "id": "3",
                     "question": "4+4",
-                    "reponse": "8"
+                    "reponse": [
+                        "12",
+                        "8",
+                        "56"
+                    ],
+                    "reponseValid": "8"
                 }
             ]
         },
@@ -32,17 +47,32 @@
                 {
                     "id": "1",
                     "question": "La capitale de la France ?",
-                    "reponse": "Paris"
+                    "reponse": [
+                        "Paris",
+                        "Milan",
+                        "New York"
+                    ],
+                    "reponseValid": "Paris"
                 }, 
                 {
                     "id": "2",
                     "question": "La capitale de l'Espagne ?",
-                    "reponse": "Madrid"
+                    "reponse": [
+                        "Quimper",
+                        "Madrid",
+                        "Dubai"
+                    ],
+                    "reponseValid": "Madrid"
                 }, 
                 {
                     "id": "3",
                     "question": "La capitale de l'Allemagne ?",
-                    "reponse": "Berlin"
+                    "reponse": [
+                        "Chicago",
+                        "Berlin",
+                        "Dublin"
+                    ],
+                    "reponseValid": "Berlin"
                 }
             ]
         }

@@ -18,7 +18,7 @@ app.post('/score', async (req, res) => {
     scoreUser = req.query.score;
     nameQuizz = req.query.name;
     res.status(200).send();
-console.log(scoreUser, nameQuizz)
+    console.log(scoreUser, nameQuizz)
     try {
         const res = await axios.post('http://localhost:3000/score', {
             score: scoreUser,
@@ -29,10 +29,25 @@ console.log(scoreUser, nameQuizz)
     }
 });
 
+app.post('/validation', async (req, res) => {
+    // Récuperer data user
+    repUser = req.body.rep;
+    repQuizz = req.body.idquizz;
+    repQuestion = req.body.idquestion;
+    res.status(200).send();
+    console.log(repUser, repQuizz, repQuestion)
+    console.log(quizz.Quizz)
+    if(quizz.Quizz.id == repQuizz && quizz.Quizz.questions[repQuestion-1].reponseValid == repUser){
+        res.send(true)
+    }else {
+        res.send(false)
+    }
+});
+
 app.get('/collecOfQuizzes', async (req, res) => {
 
     const collec = quizz.Quizz;
-
+console.log(collec)
    return  res.send(collec);
 
 });

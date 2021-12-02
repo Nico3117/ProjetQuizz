@@ -7,19 +7,19 @@ app.use(bodyparser.json());
 
 const port = 3000;
 
- const pool  = mysql.createPool({
-     host            : 'localhost',
-     user            : 'nicolas',
-     password        : 'nicolas00!!X',
-     database        : 'dbusergame'
- });
+//  const pool  = mysql.createPool({
+//      host            : 'localhost',
+//      user            : 'nicolas',
+//      password        : 'nicolas00!!X',
+//      database        : 'dbusergame'
+//  });
 
-/*const pool  = mysql.createPool({
+const pool  = mysql.createPool({
     host            : 'localhost',
     user            : 'root',
     password        : '',
     database        : 'dbusergame'
-});*/
+});
 
 let emailValid;
 let passwordValid;
@@ -31,7 +31,7 @@ app.post('/login', async (req, res) => {
 
     pool.getConnection((err, connection) => {
         if(err) throw err;
-        connection.query('SELECT email, password from users', (err, results) => {
+        connection.query('SELECT * from users', (err, results) => {
             connection.release();
             if(err) throw err;
             results.forEach((f) => {
