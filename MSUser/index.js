@@ -7,19 +7,19 @@ app.use(bodyparser.json());
 
 const port = 3000;
 
- const pool  = mysql.createPool({
-     host            : 'localhost',
-     user            : 'nicolas',
-     password        : 'nicolas00!!X',
-     database        : 'dbusergame'
- });
+//  const pool  = mysql.createPool({
+//      host            : 'localhost',
+//      user            : 'nicolas',
+//      password        : 'nicolas00!!X',
+//      database        : 'dbusergame'
+//  });
 
-/*const pool  = mysql.createPool({
+const pool  = mysql.createPool({
     host            : 'localhost',
     user            : 'root',
     password        : '',
     database        : 'dbusergame'
-});*/
+});
 
 let emailValid;
 let passwordValid;

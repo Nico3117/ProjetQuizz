@@ -1,0 +1,32 @@
+<h1><%= quizz.title%></h1>
+<h2><%= quizz.catgories %></h2>
+<% for(var i = 0; i < quizz.questions.length; i++) { %>
+    <h3>Question n°<%= quizz.questions[i].id %></h3>
+    <h3><%= quizz.questions[i].question %></h3> 
+    <input type="radio" id="rep1" name="<%=i%>" value="<%= quizz.questions[i].reponse[0] %>"><%= quizz.questions[i].reponse[0] %></input>
+    <br>
+    <input type="radio" id="rep2" name="<%=i%>" value="<%= quizz.questions[i].reponse[2] %>"><%= quizz.questions[i].reponse[2] %></input>
+    <br>
+    <input type="radio" id="rep3" name="<%=i%>" value="<%= quizz.questions[i].reponse[1] %>"><%= quizz.questions[i].reponse[1] %></input>
+    <br>
+    <button type="submit" onclick="boutonradio_valeur('<%=i%>')">Soumettre</button>
+    <script>
+        function boutonradio_valeur(nom) { 
+            rep = ""; 
+            // On récupère tous les éléments portant le nom : nom
+            var boutons = document.getElementsByName(nom);
+            for(var i=0; i < boutons.length; i++)
+            {
+                if (boutons[i].checked)
+                {
+                    rep = boutons[i].value;
+                    break;
+                }
+            }
+            repQuest = nom;
+            const idQuizz = "<%= quizz.id %>";
+            const  myUrl = "/valid/" + idQuizz + "/" + repQuest + "/" + rep;
+            window.location.replace(myUrl);
+        }
+    </script>
+<% } %>
