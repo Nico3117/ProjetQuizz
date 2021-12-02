@@ -47,7 +47,7 @@ app.post('/validation', async (req, res) => {
 app.get('/collecOfQuizzes', async (req, res) => {
 
     const collec = quizz.Quizz;
-
+console.log(collec)
    return  res.send(collec);
 
 });
